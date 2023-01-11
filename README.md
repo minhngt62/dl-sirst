@@ -15,7 +15,7 @@ evaluation metrics.
   <img src="https://user-images.githubusercontent.com/86721208/211051273-7f70a44f-e45d-40b9-8887-e567b086627d.png" />
 </p>
 
-## Deep Learning - DSAI K65: Group 16
+## Introduction to Cryptography - DSAI K65: Group 16
 1. Nguyễn Tống Minh (Email: minh.nt204885@sis.hust.edu.vn)
 2. Hoàng Trần Nhật Minh (Email: minh.ht204883@sis.hust.edu.vn)
 3. Hồ Minh Khôi (Email: khoi.hm204917@sis.hust.edu.vn)
