@@ -102,13 +102,18 @@ class Trainer:
         self.optimizer.step()
 
         te = time.time()
-        valid_loss = None
+        valid_losses = None
         if iter % int(self.valid_freq * len(self.data_loader)) == 0 and iter != 0:
             valid_losses = self.validate()
             for i, valid_loss in enumerate(valid_losses):
                 self.tensorboard.add_scalar(f"valid/metric_{i}", valid_loss, epoch * len(self.data_loader) + iter)
                 self.save_validated_model(sum(valid_loss.values()) / len(valid_loss),  epoch, self.model, self.optimizer, output=f"metric_{i}_" + self.output)
-
+        
+        valid_loss = None
+        if valid_losses is not None:
+            valid_loss = valid_losses[0]
+            valid_loss = (sum(valid_loss.values()) / len(valid_loss)).item()
+        
         self.display(len(self.data_loader), iter+1, te-ts, losses.item(), valid_loss=valid_loss)
         self.tensorboard.add_scalar("train/loss", losses.item(), epoch * len(self.data_loader) + iter)
         self.save_model(losses.item(), epoch, self.model, self.optimizer)

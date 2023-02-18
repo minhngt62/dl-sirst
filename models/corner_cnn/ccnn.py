@@ -5,7 +5,7 @@ from torch import nn, Tensor
 
 from .feature_extractor import *
 from .roi_proposal import AnchorGenerator, CornerProposal
-from .losses import DIoULoss
+from ..losses import DIoULoss
 
 class CCNN(nn.Module):
     def __init__(

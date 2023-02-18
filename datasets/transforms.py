@@ -31,10 +31,3 @@ class XywhToXyxy:
             ymax = xywh_boxes[i][3] + ymin
             xyxy_boxes.append([xmin, ymin, xmax, ymax])
         return np.array(xyxy_boxes)
-
-class ContrastAdjustment:
-    def __init__(self, factor=5):
-        self.factor = factor
-    
-    def __call__(self, images):
-        return T.functional.adjust_contrast(images, self.factor)

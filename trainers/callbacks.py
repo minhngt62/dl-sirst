@@ -45,7 +45,7 @@ class Displayer:
         train_loss: float,
         valid_loss: Union[float, None] = None
         ) -> None:
-        valid_slot = f"valid_loss: {valid_loss:.4f}" if valid_loss is not None else "valid_loss: nan"
+        valid_slot = f"valid_metrics: {valid_loss:.4f}" if valid_loss is not None else "valid_loss: nan"
         cur_print = " - ".join([" "*(len(str(n_iters)) - len(str(iter))) + f"{iter}/{n_iters}" + " " + f"[{iter*100//n_iters:>3d}%]",
                                 f"eta: {eta:.2f}s",
                                 f"train_loss: {train_loss:.4f}",
